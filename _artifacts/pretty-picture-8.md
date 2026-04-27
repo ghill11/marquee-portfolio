@@ -34,13 +34,18 @@ file_url:       "/assets/files/pretty-picture-8/Cat-5-pinout.jpg"
 file_kind:      "image"
 file_size_kb:   0
 is_featured:    true
-endorsement_quote: ""
-endorser_name:     ""
+endorsement_quote: "This is the greatest thing since sliced bread!"
+endorser_name:     "Dr. Geoffrey Hill"
 ---
 
 <p><span class="badge--featured" title="Featured by Faculty">&#9733; Featured by Faculty</span></p>
 
 <p class="lede">This documentation demonstrates proficiency in Ethernet cable assembly and wiring standards. By mastering proper connector termination techniques, the builder can independently create reliable network connections while understanding the technical specifications that ensure compatibility and performance.</p>
+
+<blockquote class="endorsement">
+  <p>&ldquo;This is the greatest thing since sliced bread!&rdquo;</p>
+  <footer>&mdash; Dr. Geoffrey Hill</footer>
+</blockquote>
 
 <p><img src="{{ '/assets/files/pretty-picture-8/Cat-5-pinout.jpg' | relative_url }}" alt="Pretty picture" style="max-width:100%;height:auto;border:1px solid #e8e8e8;border-radius:6px"></p>
 

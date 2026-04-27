@@ -21,7 +21,7 @@ header:
   # artifact has an uploaded file we could rasterize; fall back to the
   # abstract UCA-purple cover when no thumbnail exists (PBIX, ZIP,
   # link-only artifacts).
-  teaser:         /assets/thumbnails/another-pretty-picture-9.png
+  teaser:         /assets/covers/another-pretty-picture-9.png
 tags:
   []
 categories:
