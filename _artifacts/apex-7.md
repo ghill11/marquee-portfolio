@@ -33,6 +33,7 @@ artifact_filename: ""
 file_url:       ""
 file_kind:      "none"
 file_size_kb:   0
+is_featured:    false
 ---
 
 [**View artifact**](https://apex.uca.edu/dev)

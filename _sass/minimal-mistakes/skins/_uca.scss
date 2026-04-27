@@ -94,3 +94,42 @@ blockquote.endorsement {
   font-size: 0.8em;
   font-weight: 600;
 }
+
+/* Skills dashboard (Patch Group 3 #9): /skills/ page layout */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25em;
+  margin-top: 1em;
+}
+.skill-block {
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  padding: 1em 1.1em;
+  background: #fdfcff;
+}
+.skill-block__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 1.1em;
+  margin: 0 0 0.5em 0;
+  border-bottom: 1px solid $border-color;
+  padding-bottom: 0.4em;
+}
+.skill-block__name { color: $primary-color; font-weight: 700; }
+.skill-block__count {
+  color: $muted-text-color;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+.skill-block__evidence {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li { margin: 0.35em 0; line-height: 1.4; }
+}
+.skill-block__course {
+  color: $muted-text-color;
+  font-size: 0.85em;
+}

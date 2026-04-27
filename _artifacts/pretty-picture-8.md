@@ -33,6 +33,7 @@ artifact_filename: "Ethernet pinout"
 file_url:       "/assets/files/pretty-picture-8/Cat-5-pinout.jpg"
 file_kind:      "image"
 file_size_kb:   0
+is_featured:    false
 ---
 
 <p class="lede">This documentation captures proficiency in network infrastructure fundamentals, specifically Ethernet cable termination. The ability to properly construct network connections represents both technical knowledge and cost-efficiency in IT environments.</p>
