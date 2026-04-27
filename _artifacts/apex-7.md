@@ -41,7 +41,7 @@ endorser_name:     ""
 
 <p class="lede">Apex is a website designed to serve the student and faculty community with practical functionality and user-centered design. The project demonstrates full-stack development capabilities and an understanding of building tools that address real campus needs.</p>
 
-[**View artifact**](https://apex.uca.edu/dev)
+[**View artifact &rarr;**](https://apex.uca.edu/dev)
 
 ## What I Built
 
