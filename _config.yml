@@ -101,5 +101,5 @@ exclude:
 # Marquee provenance (for graduation-readiness MAINTENANCE.md generation)
 marquee:
   generated_by: "marquee"
-  generated_at: "2026-04-27T20:21:02.461005+00:00"
+  generated_at: "2026-04-27T20:25:19.899224+00:00"
   source_repo:  "https://github.com/ghill11/marquee-portfolio"
