@@ -23,7 +23,7 @@ header:
   # link-only artifacts).
   teaser:         /assets/thumbnails/another-pretty-picture-9.png
 tags:
-  []
+  - "Networking"
 categories:
   - "CISA 3363"
 course_label: "CISA 3363"
@@ -38,6 +38,10 @@ is_flagship:    false
 endorsement_quote: ""
 endorser_name:     ""
 ---
+
+<div class="artifact-meta">
+  <a class="skill-pill" href="{{ '/skills/#skill-networking' | relative_url }}">Networking</a>
+</div>
 
 <p class="lede">This project demonstrates foundational networking competency through the hands-on construction of a crossover cable. The work reflects practical understanding of network infrastructure essentials and cabling standards.</p>
 
