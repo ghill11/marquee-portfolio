@@ -63,6 +63,18 @@ $code-background-color-dark:   #2b2336 !default;
   button { color: #ffffff; }
 }
 
+/* AI elevator pitch (Patch Group 3 #8): the lede paragraph that opens
+   each artifact page. Slightly larger and lighter than body text so it
+   reads as an editorial summary, not part of the reflections. */
+p.lede {
+  font-size: 1.15em;
+  line-height: 1.55;
+  color: $text-color;
+  margin: 0 0 1.25em 0;
+  padding-left: 0.75em;
+  border-left: 3px solid $primary-color;
+}
+
 /* Pull-quote / faculty endorsement (used by Patch Group 3 #10) */
 blockquote.endorsement {
   border-left: 4px solid $primary-color;

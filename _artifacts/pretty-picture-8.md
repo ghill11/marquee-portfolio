@@ -21,7 +21,7 @@ header:
   # artifact has an uploaded file we could rasterize; fall back to the
   # abstract UCA-purple cover when no thumbnail exists (PBIX, ZIP,
   # link-only artifacts).
-  teaser:         /assets/thumbnails/pretty-picture-8.png
+  teaser:         /assets/covers/pretty-picture-8.png
 tags:
   []
 categories:
@@ -34,6 +34,8 @@ file_url:       "/assets/files/pretty-picture-8/Cat-5-pinout.jpg"
 file_kind:      "image"
 file_size_kb:   0
 ---
+
+<p class="lede">This documentation captures proficiency in network infrastructure fundamentals, specifically Ethernet cable termination. The ability to properly construct network connections represents both technical knowledge and cost-efficiency in IT environments.</p>
 
 <p><img src="{{ '/assets/files/pretty-picture-8/Cat-5-pinout.jpg' | relative_url }}" alt="Pretty picture" style="max-width:100%;height:auto;border:1px solid #e8e8e8;border-radius:6px"></p>
 
