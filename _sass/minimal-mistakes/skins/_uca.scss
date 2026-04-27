@@ -75,12 +75,25 @@ p.lede {
   border-left: 3px solid $primary-color;
 }
 
-/* Pull-quote / faculty endorsement (used by Patch Group 3 #10) */
+/* Pull-quote / faculty endorsement (Patch Group 3 #10) */
 blockquote.endorsement {
   border-left: 4px solid $primary-color;
   background: #faf8fd;
   padding: 1em 1.25em;
   font-style: italic;
+  margin: 1.25em 0;
+  footer {
+    margin-top: 0.5em;
+    font-style: normal;
+    font-size: 0.85em;
+    color: $muted-text-color;
+  }
+}
+/* Compact variant rendered on landing-page cards */
+blockquote.endorsement--card {
+  font-size: 0.85em;
+  padding: 0.6em 0.8em;
+  margin: 0.75em 0 0 0;
 }
 
 /* Featured-by-Faculty badge */

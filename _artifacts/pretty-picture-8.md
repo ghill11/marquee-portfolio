@@ -34,6 +34,8 @@ file_url:       "/assets/files/pretty-picture-8/Cat-5-pinout.jpg"
 file_kind:      "image"
 file_size_kb:   0
 is_featured:    true
+endorsement_quote: ""
+endorser_name:     ""
 ---
 
 <p><span class="badge--featured" title="Featured by Faculty">&#9733; Featured by Faculty</span></p>

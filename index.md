@@ -39,6 +39,12 @@ _No artifacts published yet._
       {% if art.is_featured %}<p><span class="badge--featured" title="Featured by Faculty">&#9733; Featured</span></p>{% endif %}
       {% if art.course_label %}<p class="archive__item-excerpt"><em>{{ art.course_label }}</em></p>{% endif %}
       {% if art.excerpt %}<p class="archive__item-excerpt">{{ art.excerpt | strip_html | truncate: 180 }}</p>{% endif %}
+      {% if art.endorsement_quote and art.endorsement_quote != "" %}
+      <blockquote class="endorsement endorsement--card">
+        <p>&ldquo;{{ art.endorsement_quote | truncate: 140 }}&rdquo;</p>
+        {% if art.endorser_name and art.endorser_name != "" %}<footer>&mdash; {{ art.endorser_name }}</footer>{% endif %}
+      </blockquote>
+      {% endif %}
     </article>
   </div>
 {% endfor %}
