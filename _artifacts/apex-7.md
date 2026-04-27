@@ -21,7 +21,7 @@ header:
   # artifact has an uploaded file we could rasterize; fall back to the
   # abstract UCA-purple cover when no thumbnail exists (PBIX, ZIP,
   # link-only artifacts).
-  teaser:         /assets/thumbnails/apex-7.png
+  teaser:         /assets/thumbnails/apex-7.jpg
 tags:
   []
 categories:
@@ -42,7 +42,7 @@ endorser_name:     ""
 <p class="lede">Apex is a website designed to serve the student and faculty community with practical functionality and user-centered design. The project demonstrates full-stack development capabilities and an understanding of building tools that address real campus needs.</p>
 
 <p><a href="https://apex.uca.edu/dev" target="_blank" rel="noopener">
-  <img src="{{ '/assets/thumbnails/apex-7.png' | relative_url }}" alt="Screenshot of Apex" style="max-width:100%;height:auto;border:1px solid #e8e8e8;border-radius:6px">
+  <img src="{{ '/assets/thumbnails/apex-7.jpg' | relative_url }}" alt="Screenshot of Apex" style="max-width:100%;height:auto;border:1px solid #e8e8e8;border-radius:6px">
 </a></p>
 
 [**View artifact &rarr;**](https://apex.uca.edu/dev)
