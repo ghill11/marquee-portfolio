@@ -4,5 +4,7 @@
 main:
   - title: "Home"
     url: /
+  - title: "Courses"
+    url: /courses/
   - title: "Skills"
     url: /skills/
