@@ -13,9 +13,9 @@ header:
   actions:
     - label: "View on GitHub"
       url:   "https://github.com/ghill11/marquee-portfolio"
-excerpt: "1 published artifact."
+excerpt: "2 published artifacts."
 intro:
-  - excerpt: "Selected academic and professional work from the University of Central Arkansas, published through Marquee."
+  - excerpt: "Selected academic and professional work from the University of Central Arkansas, published through Marquee. Browse below or filter by skill from any artifact page."
 ---
 
 {% include feature_row id="intro" type="center" %}
