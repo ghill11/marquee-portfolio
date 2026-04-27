@@ -13,9 +13,9 @@ header:
   actions:
     - label: "View on GitHub"
       url:   "https://github.com/ghill11/marquee-portfolio"
-excerpt: "1 published artifact."
+excerpt: "Portfolio coming soon."
 intro:
-  - excerpt: "Selected academic and professional work from the University of Central Arkansas, published through Marquee."
+  - excerpt: "This portfolio is published via Marquee at the University of Central Arkansas. New work will appear here as it is approved."
 ---
 
 {% include feature_row id="intro" type="center" %}
