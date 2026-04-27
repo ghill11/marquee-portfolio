@@ -20,6 +20,31 @@ intro:
 
 {% include feature_row id="intro" type="center" %}
 
+{% assign flagship = site.artifacts | where: "is_flagship", true | first %}
+{% if flagship %}
+## Flagship project
+
+<section class="flagship">
+  {% if flagship.header.teaser %}
+  <a class="flagship__teaser" href="{{ flagship.url | relative_url }}">
+    <img src="{{ flagship.header.teaser | relative_url }}" alt="">
+  </a>
+  {% endif %}
+  <div class="flagship__body">
+    <h2 class="flagship__title"><a href="{{ flagship.url | relative_url }}">{{ flagship.title }}</a></h2>
+    {% if flagship.course_label %}<p class="flagship__course"><em>{{ flagship.course_label }}</em></p>{% endif %}
+    {% if flagship.is_featured %}<p><span class="badge--featured" title="Featured by Faculty">&#9733; Featured</span></p>{% endif %}
+    {% if flagship.excerpt %}<p class="flagship__excerpt">{{ flagship.excerpt | strip_html | truncate: 280 }}</p>{% endif %}
+    {% if flagship.endorsement_quote and flagship.endorsement_quote != "" %}
+    <blockquote class="endorsement endorsement--card">
+      <p>&ldquo;{{ flagship.endorsement_quote | truncate: 200 }}&rdquo;</p>
+      {% if flagship.endorser_name and flagship.endorser_name != "" %}<footer>&mdash; {{ flagship.endorser_name }}</footer>{% endif %}
+    </blockquote>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
 ## Published artifacts
 
 {% assign sorted = site.artifacts | sort: 'date' | reverse %}
@@ -28,6 +53,7 @@ _No artifacts published yet._
 {% else %}
 <div class="grid__wrapper">
 {% for art in sorted %}
+  {% if art.is_flagship %}{% continue %}{% endif %}
   <div class="grid__item">
     <article class="archive__item">
       {% if art.header.teaser %}

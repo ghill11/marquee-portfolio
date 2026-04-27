@@ -21,7 +21,7 @@ header:
   # artifact has an uploaded file we could rasterize; fall back to the
   # abstract UCA-purple cover when no thumbnail exists (PBIX, ZIP,
   # link-only artifacts).
-  teaser:         /assets/covers/another-pretty-picture-9.png
+  teaser:         /assets/thumbnails/another-pretty-picture-9.png
 tags:
   []
 categories:
@@ -34,6 +34,7 @@ file_url:       "/assets/files/another-pretty-picture-9/Crossover-Pinout-1024x51
 file_kind:      "image"
 file_size_kb:   0
 is_featured:    false
+is_flagship:    false
 endorsement_quote: ""
 endorser_name:     ""
 ---

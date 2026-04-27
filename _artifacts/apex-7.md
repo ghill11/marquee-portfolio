@@ -34,6 +34,7 @@ file_url:       ""
 file_kind:      "none"
 file_size_kb:   0
 is_featured:    false
+is_flagship:    false
 endorsement_quote: ""
 endorser_name:     ""
 ---

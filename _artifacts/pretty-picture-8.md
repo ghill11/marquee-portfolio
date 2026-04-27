@@ -21,7 +21,7 @@ header:
   # artifact has an uploaded file we could rasterize; fall back to the
   # abstract UCA-purple cover when no thumbnail exists (PBIX, ZIP,
   # link-only artifacts).
-  teaser:         /assets/covers/pretty-picture-8.png
+  teaser:         /assets/thumbnails/pretty-picture-8.png
 tags:
   []
 categories:
@@ -34,6 +34,7 @@ file_url:       "/assets/files/pretty-picture-8/Cat-5-pinout.jpg"
 file_kind:      "image"
 file_size_kb:   0
 is_featured:    true
+is_flagship:    false
 endorsement_quote: "This is the greatest thing since sliced bread!"
 endorser_name:     "Dr. Geoffrey Hill"
 ---
