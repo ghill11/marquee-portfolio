@@ -23,7 +23,7 @@ header:
   # link-only artifacts).
   teaser:         /assets/thumbnails/pretty-picture-8.png
 tags:
-  []
+  - "Networking"
 categories:
   - "CISA 3363"
 course_label: "CISA 3363"
@@ -49,6 +49,8 @@ endorser_name:     "Dr. Geoffrey Hill"
 </blockquote>
 
 <p><img src="{{ '/assets/files/pretty-picture-8/Cat-5-pinout.jpg' | relative_url }}" alt="Pretty picture" style="max-width:100%;height:auto;border:1px solid #e8e8e8;border-radius:6px"></p>
+
+**Skills:** `Networking`
 
 ## What I Built
 
