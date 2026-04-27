@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ghill11.github.io/marquee-portfolio/sitemap.xml
