@@ -1,0 +1,193 @@
+{%- comment -%}
+  Marquee: additional <head> tags layered on top of jekyll-seo-tag.
+
+  jekyll-seo-tag already emits:
+    - <title>, <meta description>
+    - Open Graph (og:title, og:description, og:type, og:image, og:url)
+    - Twitter Card meta
+    - Canonical URL
+    - Basic JSON-LD WebSite + WebPage
+
+  This file adds:
+    - Person JSON-LD on every page (the portfolio author)
+    - CreativeWork JSON-LD on per-artifact pages
+    - ItemList JSON-LD on the landing page (collection of CreativeWorks)
+    - explicit twitter:card=summary_large_image fallback
+{%- endcomment -%}
+
+<meta name="twitter:card" content="summary_large_image">
+
+{%- comment -%}
+  PG4 #15: Theme toggle bootstrap.
+
+  This inline script runs before any <body> content paints so we never
+  flash a light theme on a user who has dark mode enabled (their stored
+  preference). Three states:
+    "light" / "dark": user explicitly chose; pin via data-theme attr.
+    "auto" or unset:  follow @media (prefers-color-scheme).
+  The toggle UI itself is appended to <body> at DOMContentLoaded; the
+  styles live in _sass/minimal-mistakes/skins/_uca.scss.
+{%- endcomment -%}
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem("marquee-theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    } catch (e) { /* private mode / SSR */ }
+  })();
+  document.addEventListener("DOMContentLoaded", function() {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "marquee-theme-toggle";
+    btn.setAttribute("aria-label", "Toggle light or dark mode");
+    function paint() {
+      var attr = document.documentElement.getAttribute("data-theme");
+      var prefersDark = window.matchMedia &&
+                        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var dark = attr === "dark" || (attr !== "light" && prefersDark);
+      btn.textContent = dark ? "☀" : "☾"; // sun if dark active, crescent moon if light
+      btn.title = dark ? "Switch to light mode" : "Switch to dark mode";
+    }
+    btn.addEventListener("click", function() {
+      var attr = document.documentElement.getAttribute("data-theme");
+      var prefersDark = window.matchMedia &&
+                        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var dark = attr === "dark" || (attr !== "light" && prefersDark);
+      var next = dark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("marquee-theme", next); } catch (e) {}
+      paint();
+    });
+    paint();
+    document.body.appendChild(btn);
+    if (window.matchMedia) {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", paint);
+    }
+  });
+</script>
+
+{%- comment -%}
+  PG4 #13: Interactive skill-filter chips on the landing grid.
+
+  Activates only on the landing page where _build_landing emitted the
+  .marquee-skill-filter strip. Each chip toggles between "show only
+  cards whose data-tags includes this tag" and the all-on default.
+  Multiple chips can be active at once (OR semantics so it stays
+  intuitive for non-technical users).
+{%- endcomment -%}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var bar = document.querySelector(".marquee-skill-filter");
+    if (!bar) return;
+    var chips = bar.querySelectorAll(".skill-pill[data-filter]");
+    var cards = document.querySelectorAll(".grid__item[data-tags], .flagship[data-tags]");
+    function apply() {
+      var active = [];
+      chips.forEach(function(c) {
+        if (c.classList.contains("is-active")) active.push(c.getAttribute("data-filter"));
+      });
+      cards.forEach(function(card) {
+        if (active.length === 0) {
+          card.classList.remove("is-hidden");
+          return;
+        }
+        var tags = (card.getAttribute("data-tags") || "").split("|");
+        var match = active.some(function(a) { return tags.indexOf(a) !== -1; });
+        if (match) card.classList.remove("is-hidden");
+        else card.classList.add("is-hidden");
+      });
+    }
+    chips.forEach(function(c) {
+      c.addEventListener("click", function(ev) {
+        ev.preventDefault();
+        c.classList.toggle("is-active");
+        apply();
+      });
+    });
+    var clearBtn = bar.querySelector(".marquee-skill-filter__clear");
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function(ev) {
+        ev.preventDefault();
+        chips.forEach(function(c) { c.classList.remove("is-active"); });
+        apply();
+      });
+    }
+  });
+</script>
+
+{%- comment -%} Person schema is emitted on every page. {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.name | default: site.title | jsonify }},
+  "url":  {{ site.url | append: site.baseurl | jsonify }},
+  "image": {{ site.author.avatar | default: '' | jsonify }},
+  "sameAs": [
+    {%- for link in site.author.links -%}
+      {{ link.url | jsonify }}{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Central Arkansas",
+    "url":  "https://uca.edu"
+  }
+}
+</script>
+
+{%- if page.collection == 'artifacts' -%}
+{%- comment -%} CreativeWork schema for per-artifact pages. {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name":   {{ page.title | jsonify }},
+  "url":    {{ page.url | absolute_url | jsonify }},
+  "image":  {{ page.header.og_image | default: page.header.overlay_image | absolute_url | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name":  {{ site.name | default: site.title | jsonify }},
+    "url":   {{ site.url | append: site.baseurl | jsonify }}
+  },
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "keywords": {{ page.tags | join: ', ' | jsonify }},
+  "isPartOf": {
+    "@type": "Collection",
+    "name":  {{ site.title | jsonify }},
+    "url":   {{ site.url | append: site.baseurl | jsonify }}
+  }
+  {%- if page.course_label -%}
+  ,"educationalAlignment": {
+    "@type": "AlignmentObject",
+    "alignmentType": "educationalSubject",
+    "targetName": {{ page.course_label | jsonify }}
+  }
+  {%- endif -%}
+}
+</script>
+{%- endif -%}
+
+{%- if page.permalink == '/' -%}
+{%- comment -%} ItemList schema only on the landing page. {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": {{ site.title | append: ' Portfolio' | jsonify }},
+  "itemListElement": [
+    {%- assign artifacts = site.artifacts | sort: 'date' | reverse -%}
+    {%- for art in artifacts -%}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "url":  {{ art.url | absolute_url | jsonify }},
+      "name": {{ art.title | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
