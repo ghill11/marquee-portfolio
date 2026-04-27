@@ -1,7 +1,7 @@
 ---
 title: "Apex"
 date: 2026-04-27 14:18:08 -0500
-last_modified_at: 2026-04-27 14:18:08 -0500
+last_modified_at: 2026-04-27 16:08:01 -0500
 slug: apex-7
 permalink: /artifacts/apex-7/
 excerpt: "This really cool website for student and faculty use."
@@ -58,4 +58,8 @@ I learned a lot!
 ## Professional Relevance
 
 This will help me make money!
+
+<p class="marquee-meta-line">
+  Last updated {{ page.last_modified_at | date: "%B %-d, %Y" }}.
+</p>
 

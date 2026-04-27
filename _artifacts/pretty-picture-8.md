@@ -1,7 +1,7 @@
 ---
 title: "Pretty picture"
 date: 2026-04-27 14:20:31 -0500
-last_modified_at: 2026-04-27 14:20:31 -0500
+last_modified_at: 2026-04-27 16:08:01 -0500
 slug: pretty-picture-8
 permalink: /artifacts/pretty-picture-8/
 excerpt: "Picture of Ethernet wiring connections."
@@ -64,4 +64,8 @@ I now know what order to wire plugs and jacks.
 ## Professional Relevance
 
 I can save money by making my own cables.
+
+<p class="marquee-meta-line">
+  Last updated {{ page.last_modified_at | date: "%B %-d, %Y" }}.
+</p>
 

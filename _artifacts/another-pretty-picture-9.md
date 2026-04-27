@@ -1,7 +1,7 @@
 ---
 title: "Another pretty picture"
 date: 2026-04-27 15:00:09 -0500
-last_modified_at: 2026-04-27 15:00:09 -0500
+last_modified_at: 2026-04-27 16:08:01 -0500
 slug: another-pretty-picture-9
 permalink: /artifacts/another-pretty-picture-9/
 excerpt: "To make a crossover cable."
@@ -58,4 +58,8 @@ I now know network cabling.
 ## Professional Relevance
 
 To make money!
+
+<p class="marquee-meta-line">
+  Last updated {{ page.last_modified_at | date: "%B %-d, %Y" }}.
+</p>
 
