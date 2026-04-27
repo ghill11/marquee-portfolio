@@ -39,7 +39,10 @@ endorsement_quote: "This is the greatest thing since sliced bread!"
 endorser_name:     "Dr. Geoffrey Hill"
 ---
 
-<p><span class="badge--featured" title="Featured by Faculty">&#9733; Featured by Faculty</span></p>
+<div class="artifact-meta">
+  <span class="badge--featured" title="Featured by Faculty">&#9733; Featured by Faculty</span>
+  <a class="skill-pill" href="{{ '/skills/#skill-networking' | relative_url }}">Networking</a>
+</div>
 
 <p class="lede">This documentation demonstrates proficiency in Ethernet cable assembly and wiring standards. By mastering proper connector termination techniques, the builder can independently create reliable network connections while understanding the technical specifications that ensure compatibility and performance.</p>
 
@@ -49,8 +52,6 @@ endorser_name:     "Dr. Geoffrey Hill"
 </blockquote>
 
 <p><img src="{{ '/assets/files/pretty-picture-8/Cat-5-pinout.jpg' | relative_url }}" alt="Pretty picture" style="max-width:100%;height:auto;border:1px solid #e8e8e8;border-radius:6px"></p>
-
-**Skills:** `Networking`
 
 ## What I Built
 
