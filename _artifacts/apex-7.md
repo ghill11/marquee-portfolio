@@ -1,7 +1,7 @@
 ---
 title: "Apex"
 date: 2026-04-27 14:18:08 -0500
-last_modified_at: 2026-04-28 15:08:28 -0500
+last_modified_at: 2026-04-28 15:22:30 -0500
 slug: apex-7
 permalink: /artifacts/apex-7/
 excerpt: "Apex is a website designed to serve the student and faculty community with practical functionality and user-centered design. The project demonstrates full-stack development capabilities and an understanding of building tools that address real campus needs."

@@ -14,15 +14,15 @@ header:
   <section class="marquee-landing-shell__hero">
     <section class="marquee-landing-hero" aria-label="Portfolio overview">
   <div class="marquee-landing-hero__body">
-    <p class="marquee-landing-hero__tagline">3 published artifacts.</p>
+    <p class="marquee-landing-hero__tagline">4 published artifacts.</p>
     <p class="marquee-landing-hero__intro">Selected academic and professional work from the University of Central Arkansas, published through Marquee. Browse below or filter by skill from any artifact page.</p>
     <ul class="marquee-landing-hero__stats">
-      <li><strong>3</strong> artifacts</li>
-      <li><strong>2</strong> courses</li>
+      <li><strong>4</strong> artifacts</li>
+      <li><strong>3</strong> courses</li>
       <li><strong>1</strong> skill</li>
       <li>Updated {{ site.marquee.generated_at | date: "%b %-d, %Y" }}</li>
     </ul>
-    <div class="marquee-landing-hero__badges"><p class="marquee-badges"><img alt="2 courses represented" src="https://img.shields.io/badge/Courses-2-552583?style=flat"><img alt="1 skills demonstrated" src="https://img.shields.io/badge/Skills-1-552583?style=flat"><img alt="1 faculty-featured artifacts" src="https://img.shields.io/badge/Featured-1-eab308?style=flat"><img alt="Verified by UCA CISA" src="https://img.shields.io/badge/Verified_by-UCA_CISA-552583?style=flat"></p></div>
+    <div class="marquee-landing-hero__badges"><p class="marquee-badges"><img alt="3 courses represented" src="https://img.shields.io/badge/Courses-3-552583?style=flat"><img alt="1 skills demonstrated" src="https://img.shields.io/badge/Skills-1-552583?style=flat"><img alt="1 faculty-featured artifacts" src="https://img.shields.io/badge/Featured-1-eab308?style=flat"><img alt="Verified by UCA CISA" src="https://img.shields.io/badge/Verified_by-UCA_CISA-552583?style=flat"></p></div>
     <div class="marquee-landing-hero__actions">
       <a class="btn btn--primary" href="https://github.com/ghill11/marquee-portfolio">View on GitHub</a>
     </div>

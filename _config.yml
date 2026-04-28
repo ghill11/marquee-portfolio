@@ -8,7 +8,7 @@ remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 # Identity
 title: "Dr. Geoffrey Hill: Portfolio"
 name: "Dr. Geoffrey Hill"
-description: "Marquee portfolio for Dr. Geoffrey Hill at the University of Central Arkansas: 3 published artifacts."
+description: "Marquee portfolio for Dr. Geoffrey Hill at the University of Central Arkansas: 4 published artifacts."
 url: "https://ghill11.github.io"
 baseurl: "/marquee-portfolio"
 locale: "en-US"
@@ -101,5 +101,5 @@ exclude:
 # Marquee provenance (for graduation-readiness MAINTENANCE.md generation)
 marquee:
   generated_by: "marquee"
-  generated_at: "2026-04-28T20:22:15.920130+00:00"
+  generated_at: "2026-04-28T20:26:15.723980+00:00"
   source_repo:  "https://github.com/ghill11/marquee-portfolio"
