@@ -135,13 +135,13 @@ $code-background-color-dark:   #2b2336 !default;
   max-width: none;
   width: 100%;
   margin: 0;
-  padding: 0.85rem 1rem;
+  padding: 1.5rem 1rem 1rem;
   float: none;
 }
 @media (min-width: 1280px) {
   .layout--marquee-landing #main,
   .layout--marquee-landing #main.initial-content {
-    padding: 0.85rem 1.5rem;
+    padding: 1.75rem 1.5rem 1.25rem;
   }
 }
 .marquee-landing-wrap { width: 100%; }
