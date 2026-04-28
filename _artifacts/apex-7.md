@@ -1,26 +1,26 @@
 ---
 title: "Apex"
 date: 2026-04-27 14:18:08 -0500
-last_modified_at: 2026-04-27 16:16:12 -0500
+last_modified_at: 2026-04-27 16:21:30 -0500
 slug: apex-7
 permalink: /artifacts/apex-7/
 excerpt: "This really cool website for student and faculty use."
 header:
-  # The cover PNG is now pure visual chrome (wordmark, course label,
-  # skill chips); the artifact title is no longer baked into the image,
-  # so we can let Minimal Mistakes overlay its live-rendered title on
-  # top without double-stacking. overlay_filter: "0.35" darkens the
-  # cover slightly for legibility of MM's white title text.
-  # og_image and teaser both point at the same PNG: og_image for social
-  # scrapers (LinkedIn / Slack / iMessage), teaser for the landing-page
-  # grid card.
+  # The cover PNG is pure visual chrome (wordmark, course label, skill
+  # chips); the artifact title is rendered live by Minimal Mistakes on
+  # top of it via overlay. overlay_filter: "0.35" darkens the cover so
+  # MM's white title text stays legible.
   overlay_image:  /assets/covers/apex-7.png
   overlay_filter: "0.35"
-  og_image:       /assets/covers/apex-7.png
-  # PG2: prefer the file-content thumbnail as the grid teaser when the
-  # artifact has an uploaded file we could rasterize; fall back to the
-  # abstract UCA-purple cover when no thumbnail exists (PBIX, ZIP,
-  # link-only artifacts).
+  # og_image is what LinkedIn / Slack / iMessage / OpenGraph scrapers
+  # fetch when someone shares the artifact URL. We prefer the content-
+  # accurate thumbnail (rasterized first page, URL screenshot) when one
+  # exists and only fall back to the abstract cover for items that have
+  # no thumbnail (PBIX, ZIP, summaries, link artifacts whose screenshot
+  # capture failed). Scrapers don't see MM's live title overlay, so the
+  # bare cover renders as an unreadable purple band on small share cards.
+  og_image:       /assets/thumbnails/apex-7.jpg
+  # teaser is the landing-page grid card image; same source as og_image.
   teaser:         /assets/thumbnails/apex-7.jpg
 tags:
   []
