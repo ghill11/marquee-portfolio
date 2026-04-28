@@ -176,6 +176,24 @@ $code-background-color-dark:   #2b2336 !default;
   .marquee-landing-shell:has(.marquee-landing-shell__rail) .marquee-landing-shell__hero  { grid-area: hero; }
   .marquee-landing-shell:has(.marquee-landing-shell__rail) .marquee-landing-shell__rail  { grid-area: rail; }
   .marquee-landing-shell:has(.marquee-landing-shell__rail) .marquee-landing-shell__below { grid-area: below; }
+
+  /* Pin the flagship rail in view as the visitor scrolls through the
+     artifact grid. align-self: start ensures the rail is its own height
+     rather than stretched to match the main column, which is required
+     for position: sticky to track. The top offset is small because MM's
+     masthead is position: relative and scrolls away with the page; if
+     a future change makes the masthead sticky, bump this to clear it. */
+  .marquee-landing-shell:has(.marquee-landing-shell__rail) .marquee-landing-shell__rail {
+    position: sticky;
+    top: 0.75rem;
+    align-self: start;
+    /* Cap height so an unusually long flagship card on a short viewport
+       stays internally scrollable rather than overflowing past the
+       viewport edge. Subtract twice the top offset for symmetric
+       breathing room at the bottom. */
+    max-height: calc(100vh - 1.5rem);
+    overflow-y: auto;
+  }
 }
 
 /* Flagship card inside the rail: always single-column internal layout
