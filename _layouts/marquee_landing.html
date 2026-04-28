@@ -1,0 +1,45 @@
+{% comment %}
+  Custom Jekyll layout for the Marquee portfolio landing page.
+
+  Replaces MM's `single` layout entirely so we are not fighting
+  defaults like the reserved sidebar slot, the $max-width cap on
+  #main, the standalone .page__title h2, or the page float-right.
+  We still pull MM's standard <head>, masthead, footer, and scripts
+  partials so SEO / brand / theme-toggle / search all keep working.
+
+  The body carries class `layout--marquee-landing` so the skin can
+  scope landing-only rules without `!important`.
+
+  Pinned-theme assumption: MM 4.26.2 (see _config.yml.tmpl). Files
+  referenced below — head.html, head/custom.html, masthead.html,
+  search/search_form.html, footer.html, footer/custom.html, scripts.html,
+  skip-links.html — are stable include names across MM 4.x.
+{% endcomment %}<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 | default: 'en' }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+  <body class="layout--marquee-landing">
+    {% include skip-links.html %}
+    {% include masthead.html %}
+
+    <div id="main" class="initial-content marquee-landing-wrap" role="main">
+      {{ content }}
+    </div>
+
+    {% if site.search == true %}
+      <div class="search-content">
+        {% include search/search_form.html %}
+      </div>
+    {% endif %}
+
+    <div id="footer" class="page__footer">
+      <footer>
+        {% include footer.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+  </body>
+</html>

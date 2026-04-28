@@ -1,22 +1,18 @@
 ---
-# Intentionally no `title:` here. MM renders front-matter `title` as a
-# standalone .page__title h2 ABOVE the body, which on the landing page
-# duplicates the name we already render as an h1 inside the dense hero
-# below and eats ~80-120px of viewport. The browser tab title and
-# jekyll-seo-tag both fall back to site.title (set by _config.yml.tmpl
-# to "Dr. Geoffrey Hill: Portfolio"), so we lose nothing by omitting it
-# here.
-layout: single
+# Custom Marquee landing layout (defined in
+# _layouts/marquee_landing.html). Replaces MM's `single` so we don't
+# fight the reserved sidebar slot, the $max-width cap on #main, or the
+# standalone .page__title h2. The browser tab title and jekyll-seo-tag
+# both fall back to site.title (set by _config.yml.tmpl).
+layout: marquee_landing
 permalink: /
-classes:
-  - wide
-  - marquee-landing-page
-author_profile: false
 header:
   og_image: /assets/covers/_landing.png
 ---
 
-<section class="marquee-landing-hero" aria-label="Portfolio overview">
+<section class="marquee-landing-top">
+  <div class="marquee-landing-top__hero">
+    <section class="marquee-landing-hero" aria-label="Portfolio overview">
   <div class="marquee-landing-hero__body">
     <p class="marquee-landing-hero__tagline">3 published artifacts.</p>
     <p class="marquee-landing-hero__intro">Selected academic and professional work from the University of Central Arkansas, published through Marquee. Browse below or filter by skill from any artifact page.</p>
@@ -33,26 +29,12 @@ header:
   </div>
 </section>
 
-
-{% assign all_tags_raw = "" | split: "" %}
-{% for art in site.artifacts %}{% for t in art.tags %}
-  {% assign all_tags_raw = all_tags_raw | push: t %}
-{% endfor %}{% endfor %}
-{% assign all_tags = all_tags_raw | uniq | sort %}
-{% if site.artifacts.size > 1 and all_tags.size > 0 %}
-<div class="marquee-skill-filter" role="group" aria-label="Filter by skill">
-  <span class="marquee-skill-filter__label">Filter by skill:</span>
-  {% for tag in all_tags %}
-  <a class="skill-pill" href="#" data-filter="{{ tag }}">{{ tag }}</a>
-  {% endfor %}
-  <a class="marquee-skill-filter__clear skill-pill" href="#" style="background:transparent;border-style:dashed;">Clear</a>
-</div>
-{% endif %}
-
-{% assign flagship = site.artifacts | where: "is_flagship", true | first %}
-{% if flagship %}
-<div class="flagship__pin-label"><span aria-hidden="true">&#9733;</span> Flagship project</div>
-<section class="flagship" data-tags="{{ flagship.tags | join: '|' }}">
+  </div>
+  {% assign flagship = site.artifacts | where: "is_flagship", true | first %}
+  {% if flagship %}
+  <aside class="marquee-landing-top__flagship">
+    <div class="flagship__pin-label"><span aria-hidden="true">&#9733;</span> Flagship project</div>
+    <section class="flagship" data-tags="{{ flagship.tags | join: '|' }}">
   {% if flagship.header.teaser %}
   <a class="flagship__teaser" href="{{ flagship.url | relative_url }}">
     <img src="{{ flagship.header.teaser | relative_url }}" alt="">
@@ -78,7 +60,24 @@ header:
     </blockquote>
     {% endif %}
   </div>
+    </section>
+  </aside>
+  {% endif %}
 </section>
+
+{% assign all_tags_raw = "" | split: "" %}
+{% for art in site.artifacts %}{% for t in art.tags %}
+  {% assign all_tags_raw = all_tags_raw | push: t %}
+{% endfor %}{% endfor %}
+{% assign all_tags = all_tags_raw | uniq | sort %}
+{% if site.artifacts.size > 1 and all_tags.size > 0 %}
+<div class="marquee-skill-filter" role="group" aria-label="Filter by skill">
+  <span class="marquee-skill-filter__label">Filter by skill:</span>
+  {% for tag in all_tags %}
+  <a class="skill-pill" href="#" data-filter="{{ tag }}">{{ tag }}</a>
+  {% endfor %}
+  <a class="marquee-skill-filter__clear skill-pill" href="#" style="background:transparent;border-style:dashed;">Clear</a>
+</div>
 {% endif %}
 
 ## Published artifacts
