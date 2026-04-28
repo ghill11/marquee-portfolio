@@ -1,13 +1,18 @@
 ---
-title: "Dr. Geoffrey Hill"
+# Intentionally no `title:` here. MM renders front-matter `title` as a
+# standalone .page__title h2 ABOVE the body, which on the landing page
+# duplicates the name we already render as an h1 inside the dense hero
+# below and eats ~80-120px of viewport. The browser tab title and
+# jekyll-seo-tag both fall back to site.title (set by _config.yml.tmpl
+# to "Dr. Geoffrey Hill: Portfolio"), so we lose nothing by omitting it
+# here.
 layout: single
 permalink: /
-classes: wide
+classes:
+  - wide
+  - marquee-landing-page
 author_profile: false
 header:
-  # OG card only; the on-page hero is rendered as the first block of the
-  # body so we can pack name + tagline + intro + stats + actions into
-  # a denser two-column layout instead of MM's full-bleed splash.
   og_image: /assets/covers/_landing.png
 ---
 
@@ -49,8 +54,7 @@ header:
 
 {% assign flagship = site.artifacts | where: "is_flagship", true | first %}
 {% if flagship %}
-## Flagship project
-
+<div class="flagship__pin-label"><span aria-hidden="true">&#9733;</span> Flagship project</div>
 <section class="flagship" data-tags="{{ flagship.tags | join: '|' }}">
   {% if flagship.header.teaser %}
   <a class="flagship__teaser" href="{{ flagship.url | relative_url }}">
