@@ -1,10 +1,10 @@
 ---
 title: "Apex"
 date: 2026-04-27 14:18:08 -0500
-last_modified_at: 2026-04-15 14:00:00 -0500
+last_modified_at: 2026-04-28 16:06:13 -0500
 slug: apex-7
 permalink: /artifacts/apex-7/
-excerpt: "Apex is a website designed to serve the student and faculty community with practical functionality and user-centered design. The project demonstrates full-stack development capabilities and an understanding of building tools that address real campus needs."
+excerpt: "Apex is a website platform designed to serve student and faculty communities. The project demonstrates full-stack development capabilities and user-centered design thinking."
 header:
   # The cover PNG is pure visual chrome (wordmark, course label, skill
   # chips); the artifact title is rendered live by Minimal Mistakes on
@@ -39,7 +39,7 @@ endorsement_quote: ""
 endorser_name:     ""
 ---
 
-<p class="lede">Apex is a website designed to serve the student and faculty community with practical functionality and user-centered design. The project demonstrates full-stack development capabilities and an understanding of building tools that address real campus needs.</p>
+<p class="lede">Apex is a website platform designed to serve student and faculty communities. The project demonstrates full-stack development capabilities and user-centered design thinking.</p>
 
 <p><a href="https://apex.uca.edu/dev" target="_blank" rel="noopener">
   <img src="{{ '/assets/thumbnails/apex-7.jpg' | relative_url }}" alt="Screenshot of Apex" style="max-width:100%;height:auto;border:1px solid #e8e8e8;border-radius:6px">
@@ -57,7 +57,7 @@ I learned a lot!
 
 ## Professional Relevance
 
-This will help me make money!
+This will help me make money! money!
 
 <p class="marquee-meta-line">
   Last updated {{ page.last_modified_at | date: "%B %-d, %Y" }}.
