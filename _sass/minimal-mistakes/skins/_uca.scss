@@ -263,6 +263,20 @@ $code-background-color-dark:   #2b2336 !default;
   }
 }
 
+/* MM renders front-matter `excerpt:` as a .page__lead subtitle inside
+   the artifact's cover-image hero overlay, right under the page title.
+   We deliberately set excerpt to the AI elevator pitch (capped at ~280
+   chars) so it powers the OG meta description, jekyll-seo-tag, and the
+   landing-tile excerpt - but the body of the artifact page already
+   renders the FULL pitch as the styled p.lede right below the cover.
+   Result without this rule: the truncated pitch sits below the title
+   in the hero, and the full pitch sits immediately below the cover as
+   the body lede. Two near-duplicate paragraphs in 100px of viewport.
+   Hide the .page__lead so the artifact page reads: title (in cover
+   hero) -> full pitch as lede -> reflections. The frontmatter excerpt
+   stays in the page metadata for everything that needs it elsewhere. */
+.page__hero--overlay .page__lead { display: none; }
+
 /* AI elevator pitch (Patch Group 3 #8): the lede paragraph that opens
    each artifact page. Slightly larger and lighter than body text so it
    reads as an editorial summary, not part of the reflections. */

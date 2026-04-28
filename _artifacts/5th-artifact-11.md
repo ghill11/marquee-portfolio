@@ -1,7 +1,7 @@
 ---
 title: "5th artifact"
 date: 2026-04-28 15:29:56 -0500
-last_modified_at: 2026-04-28 15:30:34 -0500
+last_modified_at: 2026-04-28 15:36:07 -0500
 slug: 5th-artifact-11
 permalink: /artifacts/5th-artifact-11/
 excerpt: "This project involved building an agentic system called Apex using Claude, revealing critical insights about the complexity of constraining autonomous agent behavior. The work demonstrates hands-on experience with the practical challenges of agentic programming—a skill increas..."
