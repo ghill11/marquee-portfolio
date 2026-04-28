@@ -146,37 +146,50 @@ $code-background-color-dark:   #2b2336 !default;
 }
 .marquee-landing-wrap { width: 100%; }
 
-/* 2-up top section: hero on the left (2/3 width), flagship card on the
-   right (1/3 width). Stacks below 900px so mobile sees hero -> flagship
-   -> grid in DOM order. */
-.marquee-landing-top {
+/* Landing shell: hero (top-left), flagship rail (right column, spans
+   rows), main below-stream (bottom-left: filter + grid h2 + cards).
+   At >=900px the rail is its own column and the main stream flows
+   independently on the left at its natural height - the hero does NOT
+   inflate to match the flagship's height. Stacks single-column on
+   mobile in DOM order (hero -> rail -> below). The rail uses :has()
+   to disappear gracefully when there is no flagship: the shell
+   collapses back to a single full-width column. */
+.marquee-landing-shell {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 0 0 1rem 0;
-  align-items: stretch;
+  column-gap: 1rem;
+  row-gap: 0.85rem;
+  margin: 0;
 }
+.marquee-landing-shell__hero,
+.marquee-landing-shell__rail,
+.marquee-landing-shell__below { min-width: 0; }
+
 @media (min-width: 900px) {
-  .marquee-landing-top {
-    grid-template-columns: 2fr 1fr;
+  .marquee-landing-shell:has(.marquee-landing-shell__rail) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-areas:
+      "hero rail"
+      "below rail";
+    align-items: start;   // rail is top-aligned; doesn't stretch to match
   }
+  .marquee-landing-shell:has(.marquee-landing-shell__rail) .marquee-landing-shell__hero  { grid-area: hero; }
+  .marquee-landing-shell:has(.marquee-landing-shell__rail) .marquee-landing-shell__rail  { grid-area: rail; }
+  .marquee-landing-shell:has(.marquee-landing-shell__rail) .marquee-landing-shell__below { grid-area: below; }
 }
-.marquee-landing-top__hero,
-.marquee-landing-top__flagship { min-width: 0; }
-/* In the side column the flagship is always single-column internally
-   (no teaser-left/body-right split) regardless of column width. The
-   teaser image, when present, sits on top. */
-.marquee-landing-top__flagship .flagship {
+
+/* Flagship card inside the rail: always single-column internal layout
+   so the teaser image (if any) sits above the body, not next to it. */
+.marquee-landing-shell__rail .flagship {
   grid-template-columns: 1fr;
   margin: 0;
-  height: 100%;
 }
-.marquee-landing-top__flagship .flagship__teaser img {
+.marquee-landing-shell__rail .flagship__teaser img {
   max-height: 140px;
 }
 
-/* Hero block (single-column body now that the cover-image side was
-   dropped and the column lives inside .marquee-landing-top__hero). */
+/* Hero block. No height: 100% any more - the hero sits at its natural
+   height and does NOT inflate to match the flagship rail. */
 .marquee-landing-hero {
   display: block;
   margin: 0;
@@ -186,7 +199,6 @@ $code-background-color-dark:   #2b2336 !default;
     #ffffff 60%);
   border: 1px solid lighten($primary-color, 42%);
   border-radius: 10px;
-  height: 100%;
 }
 .marquee-landing-hero__body {
   display: flex; flex-direction: column; gap: 0.4rem;
@@ -623,10 +635,11 @@ html[data-theme="dark"] .marquee-theme-toggle {
   .layout--marquee-landing .grid__wrapper { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 1024px) {
+  /* Cap at 3 cols: with the flagship rail eating ~33% of the page width
+     at >=900px, the main stream is ~66% wide; 3 cards across read better
+     at that effective width than 4. When the rail isn't present the
+     stream is full-width and 3 cols still looks comfortable. */
   .layout--marquee-landing .grid__wrapper { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (min-width: 1440px) {
-  .layout--marquee-landing .grid__wrapper { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .layout--marquee-landing .grid__item {
   width: auto !important;     /* MM ships fixed widths at each breakpoint; grid handles it now */

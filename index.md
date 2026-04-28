@@ -10,8 +10,8 @@ header:
   og_image: /assets/covers/_landing.png
 ---
 
-<section class="marquee-landing-top">
-  <div class="marquee-landing-top__hero">
+<div class="marquee-landing-shell">
+  <section class="marquee-landing-shell__hero">
     <section class="marquee-landing-hero" aria-label="Portfolio overview">
   <div class="marquee-landing-hero__body">
     <p class="marquee-landing-hero__tagline">3 published artifacts.</p>
@@ -29,10 +29,10 @@ header:
   </div>
 </section>
 
-  </div>
+  </section>
   {% assign flagship = site.artifacts | where: "is_flagship", true | first %}
   {% if flagship %}
-  <aside class="marquee-landing-top__flagship">
+  <aside class="marquee-landing-shell__rail">
     <div class="flagship__pin-label"><span aria-hidden="true">&#9733;</span> Flagship project</div>
     <section class="flagship" data-tags="{{ flagship.tags | join: '|' }}">
   {% if flagship.header.teaser %}
@@ -63,7 +63,7 @@ header:
     </section>
   </aside>
   {% endif %}
-</section>
+  <section class="marquee-landing-shell__below" markdown="1">
 
 {% assign all_tags_raw = "" | split: "" %}
 {% for art in site.artifacts %}{% for t in art.tags %}
@@ -119,3 +119,5 @@ _No artifacts published yet._
 {% endfor %}
 </div>
 {% endif %}
+  </section>
+</div>
