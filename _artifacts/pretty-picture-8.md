@@ -1,10 +1,10 @@
 ---
 title: "Pretty picture"
 date: 2026-04-27 14:20:31 -0500
-last_modified_at: 2026-04-28 14:56:12 -0500
+last_modified_at: 2026-04-28 14:59:40 -0500
 slug: pretty-picture-8
 permalink: /artifacts/pretty-picture-8/
-excerpt: "Picture of Ethernet wiring connections."
+excerpt: "This documentation demonstrates proficiency in Ethernet cable assembly and wiring standards. By mastering proper connector termination techniques, the builder can independently create reliable network connections while understanding the technical specifications that ensure com..."
 header:
   # The cover PNG is pure visual chrome (wordmark, course label, skill
   # chips); the artifact title is rendered live by Minimal Mistakes on

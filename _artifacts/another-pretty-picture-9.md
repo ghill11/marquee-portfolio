@@ -1,10 +1,10 @@
 ---
 title: "Another pretty picture"
 date: 2026-04-27 15:00:09 -0500
-last_modified_at: 2026-04-28 14:56:12 -0500
+last_modified_at: 2026-04-28 14:59:40 -0500
 slug: another-pretty-picture-9
 permalink: /artifacts/another-pretty-picture-9/
-excerpt: "To make a crossover cable."
+excerpt: "This project demonstrates hands-on experience with network cabling and infrastructure fundamentals. Through building and testing a crossover cable, the maker developed practical knowledge of physical networking that applies directly to IT support, systems administration, and i..."
 header:
   # The cover PNG is pure visual chrome (wordmark, course label, skill
   # chips); the artifact title is rendered live by Minimal Mistakes on

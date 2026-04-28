@@ -1,10 +1,10 @@
 ---
 title: "Apex"
 date: 2026-04-27 14:18:08 -0500
-last_modified_at: 2026-04-28 14:56:12 -0500
+last_modified_at: 2026-04-28 14:59:40 -0500
 slug: apex-7
 permalink: /artifacts/apex-7/
-excerpt: "This really cool website for student and faculty use."
+excerpt: "Apex is a website designed to serve the student and faculty community with practical functionality and user-centered design. The project demonstrates full-stack development capabilities and an understanding of building tools that address real campus needs."
 header:
   # The cover PNG is pure visual chrome (wordmark, course label, skill
   # chips); the artifact title is rendered live by Minimal Mistakes on
