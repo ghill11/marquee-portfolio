@@ -125,17 +125,33 @@ $code-background-color-dark:   #2b2336 !default;
    + a hero strip that genuinely wants the room. We override the wrapper
    widths only for the page that carries the .marquee-landing-page
    class (set by index.md.tmpl front matter). */
-/* MM floats `.page` right at >$large widths and reserves a left-side
-   band for the author-profile sidebar (even when author_profile: false,
-   the layout reserves the space; the sidebar slot is just rendered
-   empty). On the landing page that produces a content area pushed to
-   the right of the viewport with a wide empty band on the left, NOT
-   the centered/full-width feel we want. Strip the float + the reserved
-   padding so the landing fills the wrapper symmetrically. */
+/* MM has TWO things narrowing/shifting the landing on a wide viewport:
+     1) #main caps at $max-width (1280px) at >=$x-large (1440px). On a
+        1920px monitor that leaves the content centered in a 1280px box
+        with 320px gutters - which IS centered, but feels shifted because
+     2) inside #main, .page (and .page__inner-wrap, .archive) float right
+        with width: calc(100% - sidebar-width). With author_profile:false
+        the sidebar slot is empty, so the rule just pushes the content to
+        the right inside #main, leaving a wide empty band on the left.
+   Override both, scoped to .marquee-landing-page. Uses :has() (broadly
+   supported since 2022) to reach #main without a body-level class.
+   The breakpoint media query inside :has() is fine in modern engines. */
+body:has(.marquee-landing-page) #main,
+body:has(.marquee-landing-page) #main.initial-content {
+  max-width: none !important;
+  padding: 0.5rem 1rem !important;
+  @media (min-width: 1280px) {
+    padding: 0.75rem 1.5rem !important;
+  }
+}
 .marquee-landing-page,
 .marquee-landing-page.page,
+.marquee-landing-page.page.wide,
 .marquee-landing-page .page__inner-wrap,
-.marquee-landing-page .archive {
+.marquee-landing-page .archive,
+article.marquee-landing-page,
+article.marquee-landing-page.page,
+article.marquee-landing-page.page.wide {
   max-width: none !important;
   width: 100% !important;
   float: none !important;
@@ -144,19 +160,12 @@ $code-background-color-dark:   #2b2336 !default;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+/* Restore a small top breathing room - the previous "padding-top: 0" was
+   too tight and slammed the hero against the masthead. */
 .marquee-landing-page.page,
 .marquee-landing-page .page__inner-wrap {
-  padding-top: 0 !important;
+  padding-top: 0.85rem !important;
   margin-top: 0 !important;
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-}
-@media (min-width: 1280px) {
-  .marquee-landing-page.page,
-  .marquee-landing-page .page__inner-wrap {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-  }
 }
 body .marquee-landing-page > header { display: none; }  // belt-and-braces in case the front-matter title sneaks back
 
