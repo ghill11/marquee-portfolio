@@ -1,7 +1,7 @@
 ---
 title: "Apex"
 date: 2026-04-27 14:18:08 -0500
-last_modified_at: 2026-04-28 14:15:29 -0500
+last_modified_at: 2026-04-28 14:19:48 -0500
 slug: apex-7
 permalink: /artifacts/apex-7/
 excerpt: "This really cool website for student and faculty use."
