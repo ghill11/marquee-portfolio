@@ -1,7 +1,7 @@
 ---
 title: "Another pretty picture"
 date: 2026-04-27 15:00:09 -0500
-last_modified_at: 2026-04-28 08:25:11 -0500
+last_modified_at: 2026-04-28 14:15:29 -0500
 slug: another-pretty-picture-9
 permalink: /artifacts/another-pretty-picture-9/
 excerpt: "To make a crossover cable."
@@ -34,7 +34,7 @@ file_url:       "/assets/files/another-pretty-picture-9/Crossover-Pinout-1024x51
 file_kind:      "image"
 file_size_kb:   0
 is_featured:    false
-is_flagship:    false
+is_flagship:    true
 endorsement_quote: ""
 endorser_name:     ""
 ---
