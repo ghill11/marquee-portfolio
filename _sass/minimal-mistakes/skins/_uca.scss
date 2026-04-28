@@ -51,9 +51,20 @@ $code-background-color-dark:   #2b2336 !default;
   background-color: $primary-color;
 }
 
-/* Brand the masthead */
+/* Brand the masthead.
+   Paint BOTH .masthead (the outer wrapper) and .greedy-nav (the nav element
+   inside it). MM's default skin paints the masthead white; targeting only
+   .greedy-nav leaves a thin band of white around the nav strip and, more
+   visibly, leaves the visible-links rendering white-on-white because the
+   inline links sit on the masthead's white background, not the nav's
+   purple. */
+.masthead,
 .greedy-nav {
   background: $primary-color;
+  border-bottom: 1px solid darken($primary-color, 6%);
+}
+.greedy-nav {
+  border-bottom: 0;
   .visible-links a {
     color: #ffffff;
     &:before { background: #ffffff; }
@@ -61,6 +72,113 @@ $code-background-color-dark:   #2b2336 !default;
   }
   .site-title { color: #ffffff; }
   button { color: #ffffff; }
+}
+
+/* Hamburger toggle: $navicon-link-color-hover defaults to $primary-color
+   (purple) which is invisible against the purple masthead. Force the bars
+   white. Also restyle the .hidden-links dropdown (the panel that opens when
+   the toggle is clicked) so its links read on the same purple as the rest
+   of the brand instead of MM's default white panel. */
+.greedy-nav .greedy-nav__toggle .navicon,
+.greedy-nav .greedy-nav__toggle .navicon::before,
+.greedy-nav .greedy-nav__toggle .navicon::after {
+  background: #ffffff;
+}
+.greedy-nav .greedy-nav__toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.greedy-nav .hidden-links {
+  background: $primary-color;
+  border: 1px solid lighten($primary-color, 12%);
+}
+.greedy-nav .hidden-links a {
+  color: #ffffff;
+  &:hover { background: rgba(255, 255, 255, 0.12); color: #ffffff; }
+}
+.greedy-nav .hidden-links::before {
+  border-bottom-color: lighten($primary-color, 12%);
+}
+.greedy-nav .hidden-links::after {
+  border-bottom-color: $primary-color;
+}
+
+/* Dense landing hero (replaces MM's full-bleed splash on /). Two-column
+   on desktop (cover left, body right); stacks on mobile. Packs tagline,
+   intro, optional targeting line, stats, badges, and the GitHub action
+   into the same block so the first eye-line carries actual information.
+   The page title (student name) is rendered above by MM as the standard
+   page__title h2. */
+.marquee-landing-hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 2fr;
+  gap: 1.75rem;
+  align-items: stretch;
+  margin: 0 0 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg,
+    lighten($primary-color, 50%) 0%,
+    #ffffff 60%);
+  border: 1px solid lighten($primary-color, 42%);
+  border-radius: 12px;
+}
+.marquee-landing-hero__cover {
+  display: flex; align-items: center; justify-content: center;
+}
+.marquee-landing-hero__cover img {
+  display: block;
+  width: 100%; height: auto; max-height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+}
+.marquee-landing-hero__body {
+  display: flex; flex-direction: column; gap: 0.75rem;
+  min-width: 0;   // grid items default to min-content; allow shrink
+}
+.marquee-landing-hero__tagline {
+  margin: 0;
+  font-size: 1.05rem; font-weight: 700;
+  color: $primary-color;
+}
+.marquee-landing-hero__intro {
+  margin: 0;
+  font-size: 0.95rem; line-height: 1.55;
+  color: $text-color;
+}
+.marquee-landing-hero__targeting {
+  margin: 0;
+  font-size: 0.85rem; color: $muted-text-color;
+  display: flex; flex-wrap: wrap; gap: 0.4em; align-items: center;
+}
+.marquee-landing-hero__targeting strong { color: $text-color; }
+.marquee-landing-hero__stats {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem;
+  font-size: 0.85rem; color: $muted-text-color;
+}
+.marquee-landing-hero__stats li {
+  white-space: nowrap;
+}
+.marquee-landing-hero__stats li strong {
+  color: $primary-color; font-weight: 700; font-size: 1.05em;
+}
+.marquee-landing-hero__badges {
+  /* badges_html is a paragraph of <img> shields; tighten the spacing
+     so they sit one row tall inside the hero. */
+  & p { margin: 0; }
+  & img { margin-right: 0.25rem; vertical-align: middle; }
+}
+.marquee-landing-hero__actions { margin-top: auto; }
+
+@media (max-width: 768px) {
+  .marquee-landing-hero {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .marquee-landing-hero__cover img {
+    max-height: 160px;
+  }
 }
 
 /* AI elevator pitch (Patch Group 3 #8): the lede paragraph that opens
@@ -289,6 +407,16 @@ ul.course-index {
   pre, code,
   .highlight { background: #221b30 !important; color: #e7e3ef; }
   blockquote.endorsement { background: #1c1828; border-left-color: lighten($primary-color, 18%); }
+  /* Landing hero in dark mode: drop the light gradient for a flat dark
+     surface; keep purple accents on the tagline + stat strongs. */
+  .marquee-landing-hero {
+    background: #1c1828;
+    border-color: #2c2740;
+  }
+  .marquee-landing-hero__tagline { color: lighten($primary-color, 38%); }
+  .marquee-landing-hero__stats li strong { color: lighten($primary-color, 38%); }
+  .marquee-landing-hero__intro { color: #e7e3ef; }
+  .marquee-landing-hero__targeting strong { color: #e7e3ef; }
   /* Footer */
   .page__footer { background: #0f0c16; color: #b6afca;
                   a { color: lighten($primary-color, 38%); } }
@@ -450,6 +578,16 @@ html[data-theme="dark"] .marquee-theme-toggle {
   .page__hero,
   .page__hero--overlay { background: none !important; color: #000000 !important;
                          padding: 0 0 0.5cm 0 !important; }
+  /* Landing hero on print: flatten the gradient + remove the cover image
+     so the printed page leads with stats + actions, not chrome. */
+  .marquee-landing-hero {
+    background: none !important;
+    border: 1px solid #000000 !important;
+    grid-template-columns: 1fr !important;
+    padding: 0.5cm !important;
+  }
+  .marquee-landing-hero__cover { display: none !important; }
+  .marquee-landing-hero__actions a { color: #000000 !important; }
   .page__hero--overlay .page__title,
   .page__hero--overlay .page__lead { color: #000000 !important; text-shadow: none !important; }
   .archive__item-teaser { max-height: 4cm; }

@@ -1,30 +1,35 @@
 ---
 title: "Dr. Geoffrey Hill"
-layout: splash
+layout: single
 permalink: /
+classes: wide
+author_profile: false
 header:
-  # Landing cover is pure visual chrome (no name baked in); MM overlays
-  # the page title (the student's name) as live text on top.
-  overlay_color:  "#552583"
-  overlay_image:  /assets/covers/_landing.png
-  overlay_filter: "0.35"
-  og_image:       /assets/covers/_landing.png
-  caption: "Marquee Portfolio at the University of Central Arkansas"
-  actions:
-    - label: "View on GitHub"
-      url:   "https://github.com/ghill11/marquee-portfolio"
-excerpt: "3 published artifacts."
-intro:
-  - excerpt: "Selected academic and professional work from the University of Central Arkansas, published through Marquee. Browse below or filter by skill from any artifact page."
+  # OG card only; the on-page hero is rendered as the first block of the
+  # body so we can pack name + tagline + intro + stats + actions into
+  # a denser two-column layout instead of MM's full-bleed splash.
+  og_image: /assets/covers/_landing.png
 ---
 
-{% include feature_row id="intro" type="center" %}
-
-<p class="marquee-badges"><img alt="2 courses represented" src="https://img.shields.io/badge/Courses-2-552583?style=flat"><img alt="1 skills demonstrated" src="https://img.shields.io/badge/Skills-1-552583?style=flat"><img alt="1 faculty-featured artifacts" src="https://img.shields.io/badge/Featured-1-eab308?style=flat"><img alt="Verified by UCA CISA" src="https://img.shields.io/badge/Verified_by-UCA_CISA-552583?style=flat"></p>
-
-<p class="marquee-meta-line">
-  Last updated {{ site.marquee.generated_at | date: "%B %-d, %Y" }}.
-</p>
+<section class="marquee-landing-hero" aria-label="Portfolio overview">
+  <div class="marquee-landing-hero__cover">
+    <img src="{{ '/assets/covers/_landing.png' | relative_url }}" alt="" loading="lazy">
+  </div>
+  <div class="marquee-landing-hero__body">
+    <p class="marquee-landing-hero__tagline">3 published artifacts.</p>
+    <p class="marquee-landing-hero__intro">Selected academic and professional work from the University of Central Arkansas, published through Marquee. Browse below or filter by skill from any artifact page.</p>
+    <ul class="marquee-landing-hero__stats">
+      <li><strong>3</strong> artifacts</li>
+      <li><strong>2</strong> courses</li>
+      <li><strong>1</strong> skill</li>
+      <li>Updated {{ site.marquee.generated_at | date: "%b %-d, %Y" }}</li>
+    </ul>
+    <div class="marquee-landing-hero__badges"><p class="marquee-badges"><img alt="2 courses represented" src="https://img.shields.io/badge/Courses-2-552583?style=flat"><img alt="1 skills demonstrated" src="https://img.shields.io/badge/Skills-1-552583?style=flat"><img alt="1 faculty-featured artifacts" src="https://img.shields.io/badge/Featured-1-eab308?style=flat"><img alt="Verified by UCA CISA" src="https://img.shields.io/badge/Verified_by-UCA_CISA-552583?style=flat"></p></div>
+    <div class="marquee-landing-hero__actions">
+      <a class="btn btn--primary" href="https://github.com/ghill11/marquee-portfolio">View on GitHub</a>
+    </div>
+  </div>
+</section>
 
 
 {% assign all_tags_raw = "" | split: "" %}
