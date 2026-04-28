@@ -1,7 +1,7 @@
 ---
 title: "Another pretty picture"
 date: 2026-04-27 15:00:09 -0500
-last_modified_at: 2026-04-28 14:53:54 -0500
+last_modified_at: 2026-04-28 14:56:12 -0500
 slug: another-pretty-picture-9
 permalink: /artifacts/another-pretty-picture-9/
 excerpt: "To make a crossover cable."
@@ -23,7 +23,7 @@ header:
   # teaser is the landing-page grid card image; same source as og_image.
   teaser:         /assets/thumbnails/another-pretty-picture-9.png
 tags:
-  - "Networking"
+  []
 categories:
   - "CISA 3363"
 course_label: "CISA 3363"
@@ -39,17 +39,13 @@ endorsement_quote: ""
 endorser_name:     ""
 ---
 
-<div class="artifact-meta">
-  <a class="skill-pill" href="{{ '/skills/#skill-networking' | relative_url }}">Networking</a>
-</div>
-
-<p class="lede">This project demonstrates foundational networking competency through the hands-on construction of a crossover cable. The work reflects practical understanding of network infrastructure essentials and cabling standards.</p>
+<p class="lede">This project demonstrates hands-on experience with network cabling and infrastructure fundamentals. Through building and testing a crossover cable, the maker developed practical knowledge of physical networking that applies directly to IT support, systems administration, and infrastructure roles.</p>
 
 <p><img src="{{ '/assets/files/another-pretty-picture-9/Crossover-Pinout-1024x512.png' | relative_url }}" alt="Another pretty picture" style="max-width:100%;height:auto;border:1px solid #e8e8e8;border-radius:6px"></p>
 
 ## What I Built
 
-To make a crossover cable.
+To make a crossover cable. What if I make this have more text? Let's work to make the box bigger on the landing page and see what it overlaps of if it looks right. Keep going a bit more just to see how it goes. I don't really know how big to make this, but maybe this will be enough to see the behavior.
 
 ## Insights, Skills & Results
 
