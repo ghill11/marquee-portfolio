@@ -1,7 +1,7 @@
 ---
 title: "Apex"
 date: 2026-04-27 14:18:08 -0500
-last_modified_at: 2026-04-28 16:06:13 -0500
+last_modified_at: 2026-04-28 16:07:16 -0500
 slug: apex-7
 permalink: /artifacts/apex-7/
 excerpt: "Apex is a website platform designed to serve student and faculty communities. The project demonstrates full-stack development capabilities and user-centered design thinking."
@@ -23,7 +23,7 @@ header:
   # teaser is the landing-page grid card image; same source as og_image.
   teaser:         /assets/thumbnails/apex-7.jpg
 tags:
-  []
+  - "Networking"
 categories:
   - "On my own time"
 course_label: "On my own time"
@@ -38,6 +38,10 @@ is_flagship:    false
 endorsement_quote: ""
 endorser_name:     ""
 ---
+
+<div class="artifact-meta">
+  <a class="skill-pill" href="{{ '/skills/#skill-networking' | relative_url }}">Networking</a>
+</div>
 
 <p class="lede">Apex is a website platform designed to serve student and faculty communities. The project demonstrates full-stack development capabilities and user-centered design thinking.</p>
 
