@@ -118,41 +118,63 @@ $code-background-color-dark:   #2b2336 !default;
    into the same block so the first eye-line carries actual information.
    The page title (student name) is rendered above by MM as the standard
    page__title h2. */
-/* Reduce the empty top padding MM applies above the page article. The
-   landing page intentionally leads with the dense hero block as the
-   first thing below the masthead; MM's default ~3em of breathing room
-   pushes everything below the fold on a 720px-tall laptop viewport. */
-.marquee-landing-page {
-  &.page,
-  & .page__inner-wrap { padding-top: 0 !important; margin-top: 0 !important; }
+/* Landing page gets a wider content lane than per-artifact pages.
+   MM defaults to $max-width 1280px centered, which on a 1920px+ desktop
+   leaves ~33% of the viewport as gutters. Per-artifact pages WANT a
+   narrower text column for readability, but the landing is a card grid
+   + a hero strip that genuinely wants the room. We override the wrapper
+   widths only for the page that carries the .marquee-landing-page
+   class (set by index.md.tmpl front matter). */
+/* MM floats `.page` right at >$large widths and reserves a left-side
+   band for the author-profile sidebar (even when author_profile: false,
+   the layout reserves the space; the sidebar slot is just rendered
+   empty). On the landing page that produces a content area pushed to
+   the right of the viewport with a wide empty band on the left, NOT
+   the centered/full-width feel we want. Strip the float + the reserved
+   padding so the landing fills the wrapper symmetrically. */
+.marquee-landing-page,
+.marquee-landing-page.page,
+.marquee-landing-page .page__inner-wrap,
+.marquee-landing-page .archive {
+  max-width: none !important;
+  width: 100% !important;
+  float: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.marquee-landing-page.page,
+.marquee-landing-page .page__inner-wrap {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+@media (min-width: 1280px) {
+  .marquee-landing-page.page,
+  .marquee-landing-page .page__inner-wrap {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
 }
 body .marquee-landing-page > header { display: none; }  // belt-and-braces in case the front-matter title sneaks back
 
+/* Single-column hero (the cover-image left column was dropped because it
+   was burning ~25% of the tile width without earning it). Body content
+   now spans the full width of the gradient tile. */
 .marquee-landing-hero {
-  display: grid;
-  grid-template-columns: minmax(180px, 1fr) 2.4fr;
-  gap: 1.25rem;
-  align-items: center;
+  display: block;
   margin: 0 0 0.75rem;
-  padding: 1rem 1.25rem;
+  padding: 0.85rem 1.1rem;
   background: linear-gradient(135deg,
     lighten($primary-color, 50%) 0%,
     #ffffff 60%);
   border: 1px solid lighten($primary-color, 42%);
   border-radius: 10px;
 }
-.marquee-landing-hero__cover {
-  display: flex; align-items: center; justify-content: center;
-}
-.marquee-landing-hero__cover img {
-  display: block;
-  width: 100%; height: auto; max-height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.10);
-}
 .marquee-landing-hero__body {
-  display: flex; flex-direction: column; gap: 0.45rem;
+  display: flex; flex-direction: column; gap: 0.4rem;
   min-width: 0;
 }
 .marquee-landing-hero__tagline {
@@ -192,12 +214,7 @@ body .marquee-landing-page > header { display: none; }  // belt-and-braces in ca
 
 @media (max-width: 768px) {
   .marquee-landing-hero {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  .marquee-landing-hero__cover img {
-    max-height: 160px;
+    padding: 0.85rem 1rem;
   }
 }
 
@@ -615,7 +632,9 @@ html[data-theme="dark"] .marquee-theme-toggle {
     grid-template-columns: 1fr !important;
     padding: 0.5cm !important;
   }
-  .marquee-landing-hero__cover { display: none !important; }
+  /* (.marquee-landing-hero__cover element removed; the on-page cover
+     image was dropped when the hero went single-column. The PNG itself
+     is still generated for og:image / social-share previews.) */
   .marquee-landing-hero__actions a { color: #000000 !important; }
   .page__hero--overlay .page__title,
   .page__hero--overlay .page__lead { color: #000000 !important; text-shadow: none !important; }

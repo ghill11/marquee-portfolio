@@ -1,7 +1,7 @@
 ---
 title: "Another pretty picture"
 date: 2026-04-27 15:00:09 -0500
-last_modified_at: 2026-04-28 14:24:49 -0500
+last_modified_at: 2026-04-28 14:32:43 -0500
 slug: another-pretty-picture-9
 permalink: /artifacts/another-pretty-picture-9/
 excerpt: "To make a crossover cable."

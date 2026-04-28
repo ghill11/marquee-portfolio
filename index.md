@@ -17,9 +17,6 @@ header:
 ---
 
 <section class="marquee-landing-hero" aria-label="Portfolio overview">
-  <div class="marquee-landing-hero__cover">
-    <img src="{{ '/assets/covers/_landing.png' | relative_url }}" alt="" loading="lazy">
-  </div>
   <div class="marquee-landing-hero__body">
     <p class="marquee-landing-hero__tagline">3 published artifacts.</p>
     <p class="marquee-landing-hero__intro">Selected academic and professional work from the University of Central Arkansas, published through Marquee. Browse below or filter by skill from any artifact page.</p>
